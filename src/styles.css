@@ -43,3 +43,11 @@
     transition: 0.5s;
     cursor: pointer;
 }
+
+
+/* ItemListContainer example*/
+
+.container-example {
+    display: flex;
+    justify-content: center;
+}
