@@ -1,0 +1,53 @@
+import React, { useState } from 'react';
+
+import Swal from 'sweetalert2';
+
+export const ItemCount = ({ initial: initialValue, stock, onAdd }) => {
+  const [count, setCount] = useState(initialValue);
+
+  const handleAdd = () => {
+    if (count < stock) {
+      setCount(count + 1);
+    }
+  };
+
+  const handleSubstract = () => {
+    if (count > 0) {
+      setCount(count - 1);
+    }
+  };
+
+  const handleConfirm = () => {
+    if (count > 0) {
+      onAdd(console.log('onAdd funciona'));
+      Swal.fire({
+        icon: 'success',
+        title: 'Éxito',
+        text: 'Cantidad seleccionada agregada al carrito',
+      });
+    } else {
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ingrese una cantidad superior a 0',
+      });
+    }
+  };
+  return (
+    <div className='count-container'>
+      <p className='count-container__title'>Iphone 13</p>
+      <div className='controls'>
+        <button className='controls__button' onClick={handleSubstract}>
+          -
+        </button>
+        <p className='controls__text'>{count}</p>
+        <button className='controls__button' onClick={handleAdd}>
+          +
+        </button>
+      </div>
+      <button className='confirm-button' onClick={handleConfirm}>
+        Confirmar
+      </button>
+    </div>
+  );
+};

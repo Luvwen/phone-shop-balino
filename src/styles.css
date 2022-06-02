@@ -49,5 +49,55 @@
 
 .container-example {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* CountContainer example */
+
+.count-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 150px;
+    height: 150px;
+}
+
+.count-container__title {
+    font-size: 1.3rem;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 120px;
+    height: 20px;
+    padding: 13px 15px;
+    border:  1px solid gray;
+
+}
+
+.controls__button {
+    width: 20px;
+    height: 25px;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #3c78e0;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.controls__text {
+    font-size: 1.2rem;
+}
+
+.confirm-button {
+    border: none;
+    outline: #3c78e0 solid 1px;
+    padding: 8px 30px;
+    color: #3c78e0;
+    cursor: pointer;
 }
