@@ -47,10 +47,21 @@
 
 /* ItemListContainer example*/
 
+.loading {
+    text-align: center;
+}
+
+.cards-container {
+    margin-top: 100px;
+}
+
 .container-example {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 0px;
 }
 
 /* CountContainer example */
@@ -65,7 +76,8 @@
 }
 
 .count-container__title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
+    text-align: center;
 }
 
 .controls {
@@ -100,4 +112,34 @@
     padding: 8px 30px;
     color: #3c78e0;
     cursor: pointer;
+}
+
+/* card container */
+
+.card-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+  
+  .card-container:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+  }
+
+
+.card-container__title {
+    font-size: 1.3rem;
+}
+
+.card-container__picture {
+    width: 250px;
+    height: 250px;
+}
+
+.card-container__description{
+    font-size: 1.1rem;
 }

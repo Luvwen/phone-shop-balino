@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import Swal from 'sweetalert2';
 
-export const ItemCount = ({ initial: initialValue, stock, onAdd }) => {
+export const ItemCount = ({ initial: initialValue, stock, onAdd, title }) => {
   const [count, setCount] = useState(initialValue);
 
   const handleAdd = () => {
@@ -35,7 +35,7 @@ export const ItemCount = ({ initial: initialValue, stock, onAdd }) => {
   };
   return (
     <div className='count-container'>
-      <p className='count-container__title'>Iphone 13</p>
+      <p className='count-container__title'>{title}</p>
       <div className='controls'>
         <button className='controls__button' onClick={handleSubstract}>
           -
