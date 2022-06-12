@@ -143,3 +143,12 @@
 .card-container__description{
     font-size: 1.1rem;
 }
+
+
+/* delete after class 7 */
+
+.center {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
