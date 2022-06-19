@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+}
 
 /* Navbar component */
 
@@ -28,11 +31,11 @@
     display: flex;
     justify-content: space-around;
     margin-right: 100px;
-    min-width: 250px;
+    min-width: 350px;
     align-items:center;
 }
 
-.navbar__list-item{
+.navbar__list-item, .item-links{
     color: inherit;
     text-decoration: none;
     font-size: 1.1rem;
@@ -52,16 +55,17 @@
 }
 
 .cards-container {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .container-example {
     width: 100vw;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 22%);
     grid-template-rows: 1fr;
     grid-column-gap: 20px;
     grid-row-gap: 0px;
+    justify-content: center;
 }
 
 /* CountContainer example */
@@ -72,7 +76,7 @@
     align-items: center;
     justify-content: space-around;
     width: 150px;
-    height: 150px;
+    height: 80px;
 }
 
 .count-container__title {
@@ -122,6 +126,8 @@
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    height: 450px;
+    width: 350px;
 }
   
   .card-container:hover {
@@ -142,6 +148,12 @@
 
 .card-container__description{
     font-size: 1.1rem;
+    max-width: 35ch;
+    overflow: hidden;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 

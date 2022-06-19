@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { devices } from '../data/data';
 import { ItemDetail } from './ItemDetail';
 
 export const ItemDetailsContainer = () => {
@@ -6,19 +8,16 @@ export const ItemDetailsContainer = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
+  const selectedDevice = useParams();
+  const selectedIdDevice = selectedDevice.id;
+
   useEffect(() => {
     const MockAsync = new Promise((res) => {
       setTimeout(() => {
-        const productExample = {
-          id: 1,
-          title: 'Samsung',
-          description: 'Descripción de ejemplo',
-          price: '150.000',
-          pictureUrl:
-            'https://images.fravega.com/f500/a2793cd31a44e2f8f6746b207a2bc6dd.jpg',
-        };
-
-        res(productExample);
+        let filteredDevices = devices.filter(
+          (device) => parseInt(selectedIdDevice) === device.id
+        );
+        res(filteredDevices);
       }, 2000);
     });
 
@@ -26,11 +25,16 @@ export const ItemDetailsContainer = () => {
       setProduct(product);
       setIsLoading(false);
     });
-  }, []);
+    MockAsync.catch((err) => console.log(err));
+  }, [selectedIdDevice]);
 
   return (
     <div className='container-example center'>
-      <ItemDetail item={product} isLoading={isLoading} />
+      {!isLoading ? (
+        <ItemDetail item={product} isLoading={isLoading} />
+      ) : (
+        <h1>Loading...</h1>
+      )}
     </div>
   );
 };

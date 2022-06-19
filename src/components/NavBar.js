@@ -14,8 +14,14 @@ const NavBar = () => {
             <Link to='/' className='navbar__list-item'>
               Home
             </Link>
-            <Link to='/catalogo' className='navbar__list-item'>
-              Catalogo
+            <Link to='/category/samsung' className='navbar__list-item'>
+              Samsung
+            </Link>
+            <Link to='/category/motorola' className='navbar__list-item'>
+              Motorola
+            </Link>
+            <Link to='/category/lg' className='navbar__list-item'>
+              Lg
             </Link>
             <Link to='/carrito' className='navbar__list-item'>
               <CartWidget />
