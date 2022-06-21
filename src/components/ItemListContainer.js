@@ -12,6 +12,7 @@ export const ItemListContainer = ({ greeting }) => {
 
   useEffect(() => {
     setLoading(true);
+
     const MockAsync = new Promise((res) => {
       setTimeout(() => {
         if (urlIdParams !== undefined) {
@@ -24,10 +25,12 @@ export const ItemListContainer = ({ greeting }) => {
         }
       }, 2000);
     });
+
     MockAsync.then((devices) => {
       setItems(devices);
       setLoading(false);
     });
+
     MockAsync.catch((err) => console.log(err));
   }, [urlIdParams]);
 

@@ -19,7 +19,7 @@ export const ItemCount = ({ initial: initialValue, stock, onAdd, title }) => {
 
   const handleConfirm = () => {
     if (count > 0) {
-      onAdd(console.log('onAdd funciona'));
+      onAdd(count);
       Swal.fire({
         icon: 'success',
         title: 'Éxito',

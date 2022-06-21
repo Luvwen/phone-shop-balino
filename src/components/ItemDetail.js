@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ItemCount } from './ItemCount';
 
 export const ItemDetail = ({ item, isLoading }) => {
+  const [hideShopCart, setHideShopCart] = useState(false);
+
+  const onAdd = (count) => {
+    if (count > 0) {
+      setHideShopCart(true);
+    } else {
+      setHideShopCart(false);
+    }
+  };
+
   return (
     <>
       {!isLoading ? (
@@ -15,7 +26,13 @@ export const ItemDetail = ({ item, isLoading }) => {
             />
             <p className='card-container__description'>{item.description}</p>
             <p className='card-container__price'>{item.price}</p>
-            <ItemCount initial={1} stock={10} onAdd={() => {}} />
+            {!hideShopCart ? (
+              <ItemCount initial={1} stock={10} onAdd={onAdd} />
+            ) : (
+              <Link to='/cart'>
+                <button className='confirm-button'>Terminar compra</button>
+              </Link>
+            )}
           </div>
         ))
       ) : (
