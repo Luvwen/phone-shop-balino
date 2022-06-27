@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { CartWidget } from './CartWidget';
 
-const NavBar = () => {
+export const NavBar = () => {
   return (
     <>
       <header>
@@ -32,5 +32,3 @@ const NavBar = () => {
     </>
   );
 };
-
-export default NavBar;

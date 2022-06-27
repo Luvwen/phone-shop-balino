@@ -20,11 +20,6 @@ export const ItemCount = ({ initial: initialValue, stock, onAdd, title }) => {
   const handleConfirm = () => {
     if (count > 0) {
       onAdd(count);
-      Swal.fire({
-        icon: 'success',
-        title: 'Éxito',
-        text: 'Cantidad seleccionada agregada al carrito',
-      });
     } else {
       Swal.fire({
         icon: 'error',

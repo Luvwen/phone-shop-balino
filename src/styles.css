@@ -114,10 +114,19 @@ html {
     border: none;
     outline: #3c78e0 solid 1px;
     padding: 8px 30px;
+    width: 120px;
     color: #3c78e0;
     cursor: pointer;
 }
 
+.info-button {
+    border: none;
+    outline: #4feb34 solid 1px;
+    padding: 8px 25px;
+    width: 120px;
+    color: #3c78e0;
+    cursor: pointer;
+}
 /* card container */
 
 .card-container {
@@ -126,7 +135,7 @@ html {
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    height: 450px;
+    height: 550px;
     width: 350px;
 }
   

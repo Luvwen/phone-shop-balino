@@ -18,7 +18,7 @@ export const ItemDetailsContainer = () => {
           (device) => parseInt(selectedIdDevice) === device.id
         );
         res(filteredDevices);
-      }, 2000);
+      }, 500);
     });
 
     MockAsync.then((product) => {
