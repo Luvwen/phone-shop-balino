@@ -47,6 +47,10 @@ html {
     cursor: pointer;
 }
 
+.navbar__shopping-cart{
+    margin-left: 10px;
+}
+
 
 /* ItemListContainer example*/
 
@@ -165,11 +169,53 @@ html {
     -webkit-box-orient: vertical;
 }
 
-
-/* delete after class 7 */
-
 .center {
     display: flex;
     justify-content: center;
     margin-top: 30px;
+}
+
+/* Cart component */
+
+.cart__button {
+    margin: 15px auto 0;
+
+}
+
+.cart__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ .cart__title, .cart__button, .cart__empty-title {
+   display: flex;
+   justify-content: center;
+   min-width: max-content;
+}
+
+.cart__cards-container {
+    margin-top: 15px;
+}
+
+
+.cart__empty-link {
+    color: #3c78e0;
+    text-decoration: none;
+    margin-top: 15px;
+    padding-right: 5px;
+    font-size: 2rem;
+}
+
+.cart__empty-arrow{
+font-size: 1.7rem;
+}
+
+.cart__empty-back {
+    margin-left: 5px;
+}
+
+.cart__empty-link:hover{
+    color: #21232a;
+    transition: 0.5s;
 }

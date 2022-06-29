@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import Swal from 'sweetalert2';
 
 import { context } from './CartContext';
@@ -33,10 +34,6 @@ export const ItemDetail = ({ item, isLoading }) => {
     removeItem(item[0].id);
   };
 
-  const handleClearItems = () => {
-    clearItems();
-  };
-
   const handleFindItem = () => {
     const response = isInCart(item[0].id);
 
@@ -67,7 +64,7 @@ export const ItemDetail = ({ item, isLoading }) => {
               alt={item.title}
             />
             <p className='card-container__description'>{item.description}</p>
-            <p className='card-container__price'>{item.price}</p>
+            <p className='card-container__price'>${item.price}</p>
             {!hideShopCart ? (
               <>
                 <ItemCount initial={1} stock={10} onAdd={onAdd} />
@@ -86,9 +83,7 @@ export const ItemDetail = ({ item, isLoading }) => {
                 <button className='info-button' onClick={handleRemoveItem}>
                   Remove item
                 </button>
-                <button className='info-button' onClick={handleClearItems}>
-                  Reset items
-                </button>
+
                 <button className='info-button' onClick={handleFindItem}>
                   Find item
                 </button>

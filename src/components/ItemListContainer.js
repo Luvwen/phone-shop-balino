@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 import { ItemList } from './ItemList';
 import { devices } from '../data/data';
-import { useParams } from 'react-router-dom';
 
 export const ItemListContainer = ({ greeting }) => {
   const [items, setItems] = useState([]);
@@ -23,7 +24,7 @@ export const ItemListContainer = ({ greeting }) => {
         } else {
           res(devices);
         }
-      }, 2000);
+      }, 200);
     });
 
     MockAsync.then((devices) => {

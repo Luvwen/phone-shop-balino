@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+
 import { devices } from '../data/data';
 import { ItemDetail } from './ItemDetail';
 
@@ -18,7 +19,7 @@ export const ItemDetailsContainer = () => {
           (device) => parseInt(selectedIdDevice) === device.id
         );
         res(filteredDevices);
-      }, 500);
+      }, 200);
     });
 
     MockAsync.then((product) => {

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createContext } from 'react';
+
 import Swal from 'sweetalert2';
 
 export const context = createContext();
@@ -8,6 +9,11 @@ const Provider = context.Provider;
 
 export const CartContext = ({ children }) => {
   const [shopCartItems, setShopCartItems] = useState([]);
+
+  const cartLength = shopCartItems.reduce(
+    (accum, item) => accum + item.selectedQuantity,
+    0
+  );
 
   const addItem = (item, quantity, checked) => {
     setShopCartItems([
@@ -71,6 +77,7 @@ export const CartContext = ({ children }) => {
     clearItems: clearItems,
     isInCart: isInCart,
     shopCartItems: shopCartItems,
+    cartLength: cartLength,
   };
 
   return <Provider value={contextValue}>{children}</Provider>;
