@@ -1,6 +1,5 @@
 export const devices = [
   {
-    id: 0,
     brand: 'Samsung',
     title: 'Samsung Galaxy Z Flip3 5G 128gb',
     description:
@@ -10,7 +9,6 @@ export const devices = [
       'https://images.fravega.com/f500/c43d10ce53fc6ed1b793016f7559beef.jpg',
   },
   {
-    id: 1,
     brand: 'Samsung',
     title: 'Samsung Galaxy A22 128gb',
     description:
@@ -20,7 +18,6 @@ export const devices = [
       'https://images.fravega.com/f500/a2793cd31a44e2f8f6746b207a2bc6dd.jpg',
   },
   {
-    id: 2,
     brand: 'Samsung',
     title: 'Celular Samsung Galaxy M12 128gb',
     description:
@@ -30,7 +27,6 @@ export const devices = [
       'https://images.fravega.com/f500/73a83fe2c4a762c9ae974b499cf58406.jpg',
   },
   {
-    id: 3,
     brand: 'Samsung',
     title: 'Celular Samsung Galaxy A12 64gb',
     description:
@@ -40,7 +36,6 @@ export const devices = [
       'https://images.fravega.com/f500/ca71e2ea0b81529e5ee4a39f937dbdd5.jpg',
   },
   {
-    id: 4,
     brand: 'Samsung',
     title: 'Celular Samsung Galaxy A52 128gb',
     description:
@@ -50,7 +45,6 @@ export const devices = [
       'https://images.fravega.com/f500/45c6d89d1132121af48c2a3eac156510.jpg',
   },
   {
-    id: 5,
     brand: 'Samsung',
     title: 'Celular Samsung Galaxy A32 128gb',
     description:
@@ -60,7 +54,6 @@ export const devices = [
       'https://images.fravega.com/f500/a17ab6f3ad0b86f06376c0947efe88f5.jpg',
   },
   {
-    id: 6,
     brand: 'Samsung',
     title: 'Celular Samsung Galaxy A02 32gb',
     description:
@@ -70,7 +63,6 @@ export const devices = [
       'https://images.fravega.com/f500/21e8ed5d03e285a1fb8c04532fe65675.jpg',
   },
   {
-    id: 7,
     brand: 'Samsung',
     title: 'Celular Samsung Galaxy S20FE 128gb',
     description:
@@ -80,7 +72,6 @@ export const devices = [
       'https://images.fravega.com/f500/83a0a11263c7f4db3e7008b315a03f65.jpg',
   },
   {
-    id: 8,
     brand: 'Samsung',
     title: 'Celular Samsung Galaxy M12 128gb',
     description:
@@ -90,7 +81,6 @@ export const devices = [
       'https://images.fravega.com/f500/73a83fe2c4a762c9ae974b499cf58406.jpg',
   },
   {
-    id: 9,
     brand: 'Motorola',
     title: 'Celular Motorola E20 32gb',
     description:
@@ -100,7 +90,6 @@ export const devices = [
       'https://images.fravega.com/f500/7f0f4eba12879630070dc7b640be83b1.jpg',
   },
   {
-    id: 10,
     brand: 'Motorola',
     title: 'Celular Motorola E40 64gb',
     description:
@@ -110,7 +99,6 @@ export const devices = [
       'https://images.fravega.com/f500/437f727731960e0a6a33371a321ccb7a.jpg',
   },
   {
-    id: 11,
     brand: 'Motorola',
     title: 'Celular Motorola E7i Power 32gb',
     description:
@@ -120,7 +108,6 @@ export const devices = [
       'https://images.fravega.com/f500/efbb3a2a38f64f141a84626f3bebacf3.jpg',
   },
   {
-    id: 12,
     brand: 'Motorola',
     title: 'Celular Motorola E6I 32gb',
     description:
@@ -130,7 +117,6 @@ export const devices = [
       'https://images.fravega.com/f500/e38acefd92079afd16cceabd193aa31e.jpg',
   },
   {
-    id: 13,
     brand: 'Motorola',
     title: 'Motorola Edge 20 Pro 256gb',
     description:
@@ -140,7 +126,6 @@ export const devices = [
       'https://images.fravega.com/f500/6399154710b77b0f47ed784d3c300892.jpg',
   },
   {
-    id: 14,
     brand: 'Lg',
     title: 'Celular LG K51s 64gb',
     description:
@@ -150,7 +135,6 @@ export const devices = [
       'https://images.fravega.com/f500/62b91a8d50cba29633af44b72ac33bf3.jpg',
   },
   {
-    id: 15,
     brand: 'Lg',
     title: 'Celular LG K42 64gb',
     description:
@@ -160,7 +144,6 @@ export const devices = [
       'https://images.fravega.com/f500/1d8b40a51dc53b55a5d184502a8c165e.jpg',
   },
   {
-    id: 16,
     brand: 'Lg',
     title: 'Celular LG K40s 32gb',
     description:
@@ -170,7 +153,6 @@ export const devices = [
       'https://images.fravega.com/f500/d15f7a23d913c6d423dcc4d36fe2c32e.jpg',
   },
   {
-    id: 17,
     brand: 'Lg',
     title: 'Celular LG K52 64gb',
     description:

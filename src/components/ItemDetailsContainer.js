@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { devices } from '../data/data';
 import { ItemDetail } from './ItemDetail';
+import { collectionProducts } from '../firebase/firebase';
+import { getDocs } from 'firebase/firestore';
 
 export const ItemDetailsContainer = () => {
   const [product, setProduct] = useState({});
@@ -13,20 +14,26 @@ export const ItemDetailsContainer = () => {
   const selectedIdDevice = selectedDevice.id;
 
   useEffect(() => {
-    const MockAsync = new Promise((res) => {
-      setTimeout(() => {
-        let filteredDevices = devices.filter(
-          (device) => parseInt(selectedIdDevice) === device.id
-        );
-        res(filteredDevices);
-      }, 200);
-    });
+    setIsLoading(true);
 
-    MockAsync.then((product) => {
-      setProduct(product);
-      setIsLoading(false);
-    });
-    MockAsync.catch((err) => console.log(err));
+    getDocs(collectionProducts)
+      .then((res) => {
+        const getProducts = res.docs.map((product) => {
+          const aux = product.data();
+          aux.id = product.id;
+          return aux;
+        });
+
+        let filteredDevices = getProducts.filter(
+          (device) => selectedIdDevice === device.id
+        );
+
+        setProduct(filteredDevices);
+        setIsLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [selectedIdDevice]);
 
   return (
