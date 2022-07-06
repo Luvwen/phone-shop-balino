@@ -1,22 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { doc, getDoc } from 'firebase/firestore';
 
 import { ItemDetail } from './ItemDetail';
 import { collectionProducts } from '../../firebase/firebase';
-import { doc, getDoc } from 'firebase/firestore';
 
 export const ItemDetailsContainer = () => {
   const [product, setProduct] = useState({});
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const selectedDevice = useParams();
-  const selectedIdDevice = selectedDevice.id;
+  const { id } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
 
-    const docRef = doc(collectionProducts, selectedIdDevice);
+    const docRef = doc(collectionProducts, id);
 
     getDoc(docRef)
       .then((ref) => {
@@ -24,7 +23,7 @@ export const ItemDetailsContainer = () => {
       })
       .catch((err) => console.log(err));
     setIsLoading(false);
-  }, [selectedIdDevice]);
+  }, [id]);
 
   return (
     <div className='container-example center'>
