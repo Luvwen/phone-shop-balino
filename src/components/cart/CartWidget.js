@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
-import { context } from './CartContext';
+import { context } from '../../context/CartContext';
 
 export const CartWidget = () => {
   const { cartLength } = useContext(context);

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Swal from 'sweetalert2';
 
-import { context } from './CartContext';
+import { context } from '../../context/CartContext';
 import { ItemCount } from './ItemCount';
 
 export const ItemDetail = ({ item, isLoading }) => {
