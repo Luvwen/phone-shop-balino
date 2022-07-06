@@ -1,9 +1,9 @@
-import { getDocs } from 'firebase/firestore';
+import { getDocs, query, where } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { ItemList } from './ItemList';
-import { collectionProducts } from '../firebase/firebase';
+import { collectionProducts, getItemsFromDb } from '../firebase/firebase';
 
 export const ItemListContainer = ({ greeting }) => {
   const [items, setItems] = useState([]);
@@ -15,27 +15,21 @@ export const ItemListContainer = ({ greeting }) => {
   useEffect(() => {
     setLoading(true);
 
-    getDocs(collectionProducts)
-      .then((res) => {
-        const getProducts = res.docs.map((product) => {
-          const aux = product.data();
-          aux.id = product.id;
-          return aux;
-        });
-        if (urlIdParams !== undefined) {
-          let samsungDevices = getProducts.filter(
-            (device) => device.brand.toLowerCase() === urlIdParams
-          );
-          setItems(samsungDevices);
-        } else {
-          setItems(getProducts);
-        }
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [urlIdParams]);
+    if (urlIdParams !== undefined) {
+      // Convertir la primer letra de la categoria de minúscula a mayúscula para que coincida con la category/brand de la base de datos
+      const urlIdParams =
+        urlParams.id[0].toUpperCase() + urlParams.id.substring(1);
+
+      const filterByCategory = query(
+        collectionProducts,
+        where('brand', '==', urlIdParams)
+      );
+      getItemsFromDb(filterByCategory, setItems, setLoading);
+    } else {
+      getItemsFromDb(collectionProducts, setItems, setLoading);
+    }
+    setLoading(false);
+  }, [urlParams.id, urlIdParams]);
 
   return (
     <div className='cards-container'>

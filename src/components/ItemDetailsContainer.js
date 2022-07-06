@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { ItemDetail } from './ItemDetail';
 import { collectionProducts } from '../firebase/firebase';
-import { getDocs } from 'firebase/firestore';
+import { doc, getDoc } from 'firebase/firestore';
 
 export const ItemDetailsContainer = () => {
   const [product, setProduct] = useState({});
@@ -16,24 +16,14 @@ export const ItemDetailsContainer = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    getDocs(collectionProducts)
-      .then((res) => {
-        const getProducts = res.docs.map((product) => {
-          const aux = product.data();
-          aux.id = product.id;
-          return aux;
-        });
+    const docRef = doc(collectionProducts, selectedIdDevice);
 
-        let filteredDevices = getProducts.filter(
-          (device) => selectedIdDevice === device.id
-        );
-
-        setProduct(filteredDevices);
-        setIsLoading(false);
+    getDoc(docRef)
+      .then((ref) => {
+        setProduct({ id: ref.id, ...ref.data() });
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
+    setIsLoading(false);
   }, [selectedIdDevice]);
 
   return (

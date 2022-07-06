@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { collection, getFirestore } from 'firebase/firestore';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,3 +17,17 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 export const collectionProducts = collection(db, 'products');
+
+export const getItemsFromDb = (db, func1, func2) => {
+  getDocs(db)
+    .then((res) => {
+      const getProducts = res.docs.map((product) => {
+        const aux = product.data();
+        aux.id = product.id;
+        return aux;
+      });
+      func1(getProducts);
+      func2(false);
+    })
+    .catch((err) => console.log(err));
+};

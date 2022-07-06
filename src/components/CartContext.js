@@ -40,7 +40,7 @@ export const CartContext = ({ children }) => {
 
   const removeItem = (itemId) => {
     const arrayWithoutItemSelected = shopCartItems.filter(
-      (item) => item.selectedItem[0].id !== itemId
+      (item) => item.selectedItem.id !== itemId
     );
     setShopCartItems(arrayWithoutItemSelected);
     Swal.fire(
@@ -61,7 +61,7 @@ export const CartContext = ({ children }) => {
 
   const isInCart = (id) => {
     const isItemInCart = shopCartItems.find(
-      (item) => id === item.selectedItem[0].id
+      (item) => id === item.selectedItem.id
     );
 
     if (isItemInCart !== undefined) {
@@ -71,6 +71,11 @@ export const CartContext = ({ children }) => {
     }
   };
 
+  const purchaseOrder = (id) => {
+    setShopCartItems([]);
+    Swal.fire('Orden aceptada', `Su id de compra es: ${id}`, 'success');
+  };
+
   const contextValue = {
     addItem: addItem,
     removeItem: removeItem,
@@ -78,6 +83,7 @@ export const CartContext = ({ children }) => {
     isInCart: isInCart,
     shopCartItems: shopCartItems,
     cartLength: cartLength,
+    purchaseOrder: purchaseOrder,
   };
 
   return <Provider value={contextValue}>{children}</Provider>;

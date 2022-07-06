@@ -8,12 +8,10 @@ import { ItemCount } from './ItemCount';
 
 export const ItemDetail = ({ item, isLoading }) => {
   const [hideShopCart, setHideShopCart] = useState(false);
-
-  const { addItem, removeItem, clearItems, isInCart } = useContext(context);
-
+  const { addItem, removeItem, isInCart } = useContext(context);
   const onAdd = (count) => {
     if (count > 0) {
-      const checkCart = isInCart(item[0].id);
+      const checkCart = isInCart(item.id);
 
       if (!checkCart) {
         addItem(item, count, false);
@@ -31,11 +29,11 @@ export const ItemDetail = ({ item, isLoading }) => {
   };
 
   const handleRemoveItem = () => {
-    removeItem(item[0].id);
+    removeItem(item.id);
   };
 
   const handleFindItem = () => {
-    const response = isInCart(item[0].id);
+    const response = isInCart(item.id);
 
     if (response) {
       Swal.fire(
@@ -55,42 +53,40 @@ export const ItemDetail = ({ item, isLoading }) => {
   return (
     <>
       {!isLoading ? (
-        item.map((item) => (
-          <div key={item.id} className='card-container'>
-            <h3 className='card-container__title'>{item.title}</h3>
-            <img
-              className='card-container__picture'
-              src={item.pictureUrl}
-              alt={item.title}
-            />
-            <p className='card-container__description'>{item.description}</p>
-            <p className='card-container__price'>${item.price}</p>
-            {!hideShopCart ? (
-              <>
-                <ItemCount initial={1} stock={10} onAdd={onAdd} />
-                <button className='info-button' onClick={handleFindItem}>
-                  Find item
-                </button>
-                <button className='info-button' onClick={handleRemoveItem}>
-                  Remove item
-                </button>
-              </>
-            ) : (
-              <>
-                <Link to='/cart'>
-                  <button className='confirm-button'>Terminar compra</button>
-                </Link>
-                <button className='info-button' onClick={handleRemoveItem}>
-                  Remove item
-                </button>
+        <div key={item.id} className='card-container'>
+          <h3 className='card-container__title'>{item.title}</h3>
+          <img
+            className='card-container__picture'
+            src={item.pictureUrl}
+            alt={item.title}
+          />
+          <p className='card-container__description'>{item.description}</p>
+          <p className='card-container__price'>${item.price}</p>
+          {!hideShopCart ? (
+            <>
+              <ItemCount initial={1} stock={10} onAdd={onAdd} />
+              <button className='info-button' onClick={handleFindItem}>
+                Find item
+              </button>
+              <button className='info-button' onClick={handleRemoveItem}>
+                Remove item
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to='/cart'>
+                <button className='confirm-button'>Terminar compra</button>
+              </Link>
+              <button className='info-button' onClick={handleRemoveItem}>
+                Remove item
+              </button>
 
-                <button className='info-button' onClick={handleFindItem}>
-                  Find item
-                </button>
-              </>
-            )}
-          </div>
-        ))
+              <button className='info-button' onClick={handleFindItem}>
+                Find item
+              </button>
+            </>
+          )}
+        </div>
       ) : (
         <h1>Loading...</h1>
       )}

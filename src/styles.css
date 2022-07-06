@@ -183,9 +183,14 @@ html {
 }
 
 .cart__empty {
+    width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.cart__empty-id, .cart__empty-title{
+    margin-bottom: 15px;
 }
 
  .cart__title, .cart__button, .cart__empty-title {
