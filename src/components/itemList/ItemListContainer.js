@@ -28,6 +28,7 @@ export const ItemListContainer = ({ greeting }) => {
     } else {
       getItemsFromDb(collectionProducts, setItems, setLoading);
     }
+
     setLoading(false);
   }, [urlParams.id, urlIdParams]);
 

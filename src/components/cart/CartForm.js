@@ -23,8 +23,10 @@ export const CartForm = ({ setOrderInfo, sumOfShopItems }) => {
     const shopOrderToUser = shopCartItems.map((prod) => {
       return {
         item: prod.selectedItem.title,
+        description: prod.selectedItem.description,
         cantidad: prod.selectedQuantity,
         id: prod.selectedItem.id,
+        estado: 'generada',
       };
     });
     e.preventDefault();

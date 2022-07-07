@@ -6,9 +6,10 @@ import { ItemDetail } from './ItemDetail';
 import { collectionProducts } from '../../firebase/firebase';
 
 export const ItemDetailsContainer = () => {
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState([]);
 
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   const { id } = useParams();
 
@@ -19,19 +20,22 @@ export const ItemDetailsContainer = () => {
 
     getDoc(docRef)
       .then((ref) => {
-        setProduct({ id: ref.id, ...ref.data() });
+        if (ref.data() === undefined) {
+          setIsLoading(false);
+          setError(true);
+        } else {
+          setProduct({ id: ref.id, ...ref.data() });
+          setIsLoading(false);
+        }
       })
       .catch((err) => console.log(err));
-    setIsLoading(false);
   }, [id]);
+
+  if (error) return <h1>Producto invalido, como vos</h1>;
 
   return (
     <div className='container-example center'>
-      {!isLoading ? (
-        <ItemDetail item={product} isLoading={isLoading} />
-      ) : (
-        <h1>Loading...</h1>
-      )}
+      {isLoading ? <h1>Loading...</h1> : <ItemDetail item={product} />}
     </div>
   );
 };
