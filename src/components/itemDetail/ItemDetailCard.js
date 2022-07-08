@@ -14,7 +14,7 @@ export const ItemDetailCard = ({ item }) => {
       const checkCart = isInCart(item.id);
 
       if (!checkCart) {
-        addItem(item, count, false);
+        addItem(item, count, selectedColor, false);
         setHideShopCart(true);
       } else {
         Swal.fire({
@@ -51,6 +51,14 @@ export const ItemDetailCard = ({ item }) => {
     }
   };
 
+  const [selectedColor, setSelectedColor] = useState({ color: 'blanco' });
+
+  const handleChangeColor = (e) => {
+    setSelectedColor({ color: e.target.value });
+  };
+
+  const deviceColors = ['blanco', 'negro', 'gris', 'azul', 'rosa'];
+
   return (
     <div className='card-container'>
       <h3 className='card-container__title'>{item.title}</h3>
@@ -74,6 +82,15 @@ export const ItemDetailCard = ({ item }) => {
       <button className='info-button' onClick={handleRemoveItem}>
         Remove item
       </button>
+      <select onChange={handleChangeColor} defaultValue='blanco'>
+        {deviceColors.map((color, i) => {
+          return (
+            <option key={i} value={color}>
+              {color}
+            </option>
+          );
+        })}
+      </select>
     </div>
   );
 };

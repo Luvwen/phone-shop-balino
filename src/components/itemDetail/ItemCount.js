@@ -28,6 +28,7 @@ export const ItemCount = ({ initial: initialValue, stock, onAdd, title }) => {
       });
     }
   };
+
   return (
     <div className='count-container'>
       <p className='count-container__title'>{title}</p>

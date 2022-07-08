@@ -15,12 +15,13 @@ export const CartContext = ({ children }) => {
     0
   );
 
-  const addItem = (item, quantity, checked) => {
+  const addItem = (item, quantity, color, checked) => {
     setShopCartItems([
       ...shopCartItems,
       {
         selectedItem: item,
         selectedQuantity: quantity,
+        selectedColor: color,
       },
     ]);
     if (checked === false) {
