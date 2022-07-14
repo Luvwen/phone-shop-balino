@@ -8,9 +8,13 @@ export const EmptyCart = ({ orderInfo }) => {
   return (
     <div>
       <div className='cart__empty'>
-        <h1 className='cart__empty-id'>
-          Su compra fue registrada con el id: {orderInfo}
-        </h1>
+        {orderInfo.length === 20 ? (
+          <h1 className='cart__empty-id'>
+            Su compra fue registrada con el id: {orderInfo}
+          </h1>
+        ) : (
+          ''
+        )}
         <h2 className='cart__empty-title'>El carrito esta vacio</h2>
         <h2 className='cart__empty-button'>
           <Link to='/' className='cart__empty-link'>

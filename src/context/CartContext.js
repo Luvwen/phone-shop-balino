@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { createContext } from 'react';
 
 import Swal from 'sweetalert2';
@@ -8,12 +8,17 @@ export const context = createContext();
 const Provider = context.Provider;
 
 export const CartContext = ({ children }) => {
-  const [shopCartItems, setShopCartItems] = useState([]);
+  const items = JSON.parse(localStorage.getItem('products'));
+  const [shopCartItems, setShopCartItems] = useState(items || []);
 
   const cartLength = shopCartItems.reduce(
     (accum, item) => accum + item.selectedQuantity,
     0
   );
+
+  useEffect(() => {
+    localStorage.setItem('products', JSON.stringify(shopCartItems));
+  }, [shopCartItems]);
 
   const addItem = (item, quantity, color, checked) => {
     setShopCartItems([
@@ -77,6 +82,15 @@ export const CartContext = ({ children }) => {
     Swal.fire('Orden aceptada', `Su id de compra es: ${id}`, 'success');
   };
 
+  const numberFormat = new Intl.NumberFormat('es-AR');
+
+  const sumOfShopItems = numberFormat.format(
+    shopCartItems.reduce(
+      (accum, item) => accum + item.selectedItem.price * item.selectedQuantity,
+      0
+    )
+  );
+
   const contextValue = {
     addItem: addItem,
     removeItem: removeItem,
@@ -85,6 +99,7 @@ export const CartContext = ({ children }) => {
     shopCartItems: shopCartItems,
     cartLength: cartLength,
     purchaseOrder: purchaseOrder,
+    sumOfShopItems: sumOfShopItems,
   };
 
   return <Provider value={contextValue}>{children}</Provider>;

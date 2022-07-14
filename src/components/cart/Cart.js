@@ -8,16 +8,7 @@ import { EmptyCart } from './EmptyCart';
 export const Cart = () => {
   const [orderInfo, setOrderInfo] = useState('');
 
-  const { shopCartItems } = useContext(context);
-
-  let numberFormat = new Intl.NumberFormat('es-AR');
-
-  let sumOfShopItems = numberFormat.format(
-    shopCartItems.reduce(
-      (accum, item) => accum + item.selectedItem.price * item.selectedQuantity,
-      0
-    )
-  );
+  const { shopCartItems, sumOfShopItems } = useContext(context);
 
   return (
     <>
