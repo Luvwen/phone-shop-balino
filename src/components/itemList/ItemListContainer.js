@@ -1,9 +1,9 @@
-import { query, where } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { ItemList } from './ItemList';
 import { collectionProducts, getItemsFromDb } from '../../firebase/firebase';
+import { query, where } from 'firebase/firestore';
 
 export const ItemListContainer = ({ greeting }) => {
   const [items, setItems] = useState([]);
@@ -14,7 +14,6 @@ export const ItemListContainer = ({ greeting }) => {
 
   useEffect(() => {
     setLoading(true);
-
     if (urlIdParams !== undefined) {
       // Convertir la primer letra de la categoria de minúscula a mayúscula para que coincida con la category/brand de la base de datos
       const urlIdParams =
@@ -28,8 +27,6 @@ export const ItemListContainer = ({ greeting }) => {
     } else {
       getItemsFromDb(collectionProducts, setItems, setLoading);
     }
-
-    setLoading(false);
   }, [urlParams.id, urlIdParams]);
 
   return (

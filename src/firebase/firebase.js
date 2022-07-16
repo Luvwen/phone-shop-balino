@@ -17,6 +17,7 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 export const collectionProducts = collection(db, 'products');
+export const orders = collection(db, 'orders');
 
 export const getItemsFromDb = (db, func1, func2) => {
   getDocs(db)

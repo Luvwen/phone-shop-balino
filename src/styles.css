@@ -224,3 +224,30 @@ font-size: 1.7rem;
     color: #21232a;
     transition: 0.5s;
 }
+
+
+/* OrderDetail */
+
+.order__card{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+
+.products {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+}
+.products__card {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 5px;
+    margin-bottom: 15px;
+}

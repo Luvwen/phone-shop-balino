@@ -31,7 +31,7 @@ export const ItemDetailsContainer = () => {
       .catch((err) => console.log(err));
   }, [id]);
 
-  if (error) return <h1>Producto invalido, como vos</h1>;
+  if (error) return <h1>Producto invalido</h1>;
 
   return (
     <div className='container-example center'>
