@@ -10,7 +10,10 @@ export const CartWidget = () => {
 
   return (
     <>
-      <FontAwesomeIcon icon={faShoppingCart} />
+      <FontAwesomeIcon
+        icon={faShoppingCart}
+        className='navbar__shopping-cart'
+      />
       <span className='navbar__shopping-cart'>
         {cartLength > 0 && cartLength}
       </span>

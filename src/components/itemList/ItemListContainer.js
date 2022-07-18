@@ -29,15 +29,34 @@ export const ItemListContainer = ({ greeting }) => {
     }
   }, [urlParams.id, urlIdParams]);
 
+  if (loading) return <h1 className='loading'>Loading...</h1>;
+
   return (
-    <div className='cards-container'>
-      {!loading ? (
-        <div className='container-example'>
-          <ItemList items={items} />
+    <section className='home'>
+      <div className='home__container'>
+        <div className='home__description'>
+          <h1 className='home__description-title'>
+            La mejor tecnología en un{' '}
+            <span className='home__description-title-span'>solo lugar.</span>
+          </h1>
+          <p className='home__description-text'>
+            Explorar{' '}
+            <span className='home__description-text-emphasis'>
+              #DoWhatYouCant
+            </span>
+          </p>
         </div>
-      ) : (
-        <h1 className='loading'>Loading...</h1>
-      )}
-    </div>
+        <div>
+          <img
+            className='home__container-image'
+            src='/assets/examplePicture.png'
+            alt='Samsung s20 128gb'
+          ></img>
+        </div>
+      </div>
+      <div className='container-example'>
+        <ItemList items={items} />
+      </div>
+    </section>
   );
 };
