@@ -6,22 +6,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const EmptyCart = ({ orderInfo }) => {
   return (
-    <div>
+    <div className='cart-container'>
       <div className='cart__empty'>
         {orderInfo.length === 20 ? (
-          <h1 className='cart__empty-id'>
-            Su compra fue registrada con el id: {orderInfo}
-          </h1>
+          <div className='cart__empty-order'>
+            <h1 className='cart__empty-order__title'>Compra Exitosa</h1>
+            <h2 className='cart__empty-order__id'>
+              Su transacción fue registrada con el id: {orderInfo}
+            </h2>
+          </div>
         ) : (
           ''
         )}
-        <h2 className='cart__empty-title'>El carrito esta vacio</h2>
-        <h2 className='cart__empty-button'>
-          <Link to='/' className='cart__empty-link'>
-            <FontAwesomeIcon icon={faArrowLeft} className='cart__empty-arrow' />
-            <span className='cart__empty-back'>Volver</span>
-          </Link>
-        </h2>
+        <div className='cart__empty-container'>
+          <h2 className='cart__empty-subtitle'>Tu carrito está vacío</h2>
+          <h2 className='cart__empty-subtitle'>
+            ¿No sabés que comprar? ¡Miles de productos te esperan!
+          </h2>
+          <h2 className='cart__empty-button'>
+            <Link to='/' className='cart__empty-link'>
+              <FontAwesomeIcon
+                icon={faArrowLeft}
+                className='cart__empty-arrow'
+              />
+              <span className='cart__empty-back'>Elegir productos</span>
+            </Link>
+          </h2>
+        </div>
       </div>
     </div>
   );

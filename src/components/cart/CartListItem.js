@@ -10,24 +10,22 @@ export const CartListItem = ({ item }) => {
     removeItem(idStringToNumber);
   };
   return (
-    <div className='card-container'>
-      <h1 className='card-container__title'>{item?.selectedItem?.brand}</h1>
-      <h2 className='card-container__title'>{item.selectedItem?.title}</h2>
+    <div className='cart-card'>
       <img
-        className='card-container__picture'
+        className='cart-card__picture'
         src={item.selectedItem?.pictureUrl}
         alt={item.selectedItem?.title}
       />
-      <p className='card-container__price'>
-        ${item.selectedItem?.price} x {item.selectedQuantity} = $
-        {(item.selectedItem?.price * item.selectedQuantity).toFixed(3)}
+      <h2 className='cart-card__title'>{item.selectedItem?.title}</h2>
+      <p className='cart-card__price'>
+        ${(item.selectedItem?.price * item.selectedQuantity).toFixed(3)}
       </p>
       <button
-        className='info-button'
+        className='cart-card__button'
         onClick={handleRemoveItem}
         value={item.selectedItem.id}
       >
-        Remove Item
+        Eliminar
       </button>
     </div>
   );

@@ -58,48 +58,49 @@ export const CartForm = ({ setOrderInfo, sumOfShopItems }) => {
     }
   };
   return (
-    <div className='card-form'>
-      <form onSubmit={handleSubmit}>
-        <p>
-          <label htmlFor='name'>Name: </label>
-          <input
-            id='name'
-            name='name'
-            value={values.name}
-            onChange={handleChange}
-          />
-        </p>
-        <p>
-          <label htmlFor='phone'>Phone: </label>
-          <input
-            id='phone'
-            name='phone'
-            value={values.phone}
-            onChange={handleChange}
-          />
-        </p>
-        <p>
-          <label htmlFor='email'>Email: </label>
-          <input
-            id='email'
-            type='email'
-            name='email'
-            value={values.email}
-            onChange={handleChange}
-          />
-        </p>
-        <p>
-          <label htmlFor='email'>Confirm email: </label>
-          <input
-            id='confirmEmail'
-            type='confirmEmail'
-            name='confirmEmail'
-            value={values.confirmEmail}
-            onChange={handleChange}
-          />
-        </p>
-        <button type='submit' onSubmit={handleSubmit}>
-          Submit order
+    <div className='cart-form'>
+      <h2 className='cart-form__title'>Identificación</h2>
+      <hr className='cart-form__separator' />
+      <p className='cart-form__text'>
+        Información esencial para la finalización de su compra
+      </p>
+      <form onSubmit={handleSubmit} className='cart-form-card'>
+        <label htmlFor='name'>Name: </label>
+        <input
+          id='name'
+          name='name'
+          value={values.name}
+          onChange={handleChange}
+        />
+        <label htmlFor='phone'>Phone: </label>
+        <input
+          id='phone'
+          name='phone'
+          value={values.phone}
+          onChange={handleChange}
+        />
+        <label htmlFor='email'>Email: </label>
+        <input
+          id='email'
+          type='email'
+          name='email'
+          value={values.email}
+          onChange={handleChange}
+        />
+        <label htmlFor='email'>Confirm email: </label>
+        <input
+          id='confirmEmail'
+          type='confirmEmail'
+          name='confirmEmail'
+          value={values.confirmEmail}
+          onChange={handleChange}
+        />
+        <button
+          className='cart-form-card__submit'
+          type='submit'
+          onSubmit={handleSubmit}
+        >
+          Enviar orden
         </button>
       </form>
     </div>

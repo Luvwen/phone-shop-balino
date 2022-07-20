@@ -15,16 +15,13 @@ export const Cart = () => {
       {shopCartItems.length === 0 ? (
         <EmptyCart orderInfo={orderInfo} />
       ) : (
-        <>
-          <h1 className='cart__title'>
-            El total de su compra es de: ${sumOfShopItems}
-          </h1>
+        <div className='cart'>
           <CartList />
           <CartForm
             setOrderInfo={setOrderInfo}
             sumOfShopItems={sumOfShopItems}
           />
-        </>
+        </div>
       )}
     </>
   );

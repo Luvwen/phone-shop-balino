@@ -37,7 +37,7 @@ export const ItemListContainer = ({ greeting }) => {
         <div className='home__description'>
           <h1 className='home__description-title'>
             La mejor tecnología en un{' '}
-            <span className='home__description-title-span'>solo lugar.</span>
+            <span className='line-breaker'>solo lugar.</span>
           </h1>
           <p className='home__description-text'>
             Explorar{' '}
