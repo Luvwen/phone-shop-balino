@@ -4,11 +4,15 @@ import Swal from 'sweetalert2';
 
 import { ItemCount } from './ItemCount';
 import { context } from '../../context/CartContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeartbeat } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 export const ItemDetailCard = ({ item }) => {
   const [hideShopCart, setHideShopCart] = useState(false);
 
-  const { addItem, removeItem, isInCart } = useContext(context);
+  const { addItem, removeItem, isInCart, addItemToFavList, addedToFav } =
+    useContext(context);
 
   const onAdd = (count) => {
     if (count > 0) {
@@ -60,6 +64,12 @@ export const ItemDetailCard = ({ item }) => {
 
   const deviceColors = ['Blanco', 'Negro', 'Gris', 'Azul', 'Rosa'];
 
+  const index = item.index;
+
+  const handleAddToFav = (item, index) => {
+    addItemToFavList(item, index);
+  };
+
   return (
     <div className='card-detail'>
       <div className='card-detail-list'>
@@ -78,7 +88,20 @@ export const ItemDetailCard = ({ item }) => {
             src={item.pictureUrl}
             alt={item.title}
           />
-          <h3 className='card-info__title'>{item.title}</h3>
+          <div>
+            <h3 className='card-info__title'>{item.title}</h3>
+            <FontAwesomeIcon
+              onClick={() => {
+                handleAddToFav(item, index);
+              }}
+              icon={
+                addedToFav.find((item) => item.i === index)
+                  ? faHeartbeat
+                  : faHeart
+              }
+              className='wishlist-heart-detail'
+            />
+          </div>
           <p className='card-info__price'>${item.price}</p>
           {!hideShopCart && <ItemCount initial={1} stock={10} onAdd={onAdd} />}
           <select

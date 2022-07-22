@@ -9,7 +9,12 @@ const Provider = context.Provider;
 
 export const CartContext = ({ children }) => {
   const items = JSON.parse(localStorage.getItem('products'));
+  const wishListArray = JSON.parse(localStorage.getItem('wishlist'));
+  const wishListHeart = JSON.parse(localStorage.getItem('wishlistHeart'));
+
   const [shopCartItems, setShopCartItems] = useState(items || []);
+  const [favProducts, setFavProducts] = useState(wishListArray || []);
+  const [addedToFav, setAddedToFav] = useState(wishListHeart || []);
 
   const cartLength = shopCartItems.reduce(
     (accum, item) => accum + item.selectedQuantity,
@@ -91,6 +96,29 @@ export const CartContext = ({ children }) => {
     )
   );
 
+  const addItemToFavList = (item, i) => {
+    const isItemInCart = favProducts.find((prod) => item.id === prod.id);
+    if (isItemInCart === undefined) {
+      setFavProducts([...favProducts, item]);
+      setAddedToFav([...addedToFav, { i: i }]);
+    } else {
+      const arrayWithoutItemSelected = favProducts.filter(
+        (prod) => item.id !== prod.id
+      );
+      const arrayWithoutHeart = addedToFav.filter((heart) => i !== heart.i);
+      setFavProducts(arrayWithoutItemSelected);
+      setAddedToFav(arrayWithoutHeart);
+    }
+  };
+
+  useEffect(() => {
+    localStorage.setItem('wishlist', JSON.stringify(favProducts));
+  }, [favProducts]);
+
+  useEffect(() => {
+    localStorage.setItem('wishlistHeart', JSON.stringify(addedToFav));
+  }, [addedToFav]);
+
   const contextValue = {
     addItem: addItem,
     removeItem: removeItem,
@@ -100,6 +128,8 @@ export const CartContext = ({ children }) => {
     cartLength: cartLength,
     purchaseOrder: purchaseOrder,
     sumOfShopItems: sumOfShopItems,
+    addItemToFavList: addItemToFavList,
+    addedToFav: addedToFav,
   };
 
   return <Provider value={contextValue}>{children}</Provider>;
