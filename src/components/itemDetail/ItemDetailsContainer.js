@@ -33,9 +33,5 @@ export const ItemDetailsContainer = () => {
 
   if (error) return <h1>Producto invalido</h1>;
 
-  return (
-    <div className='container-example center'>
-      {isLoading ? <h1>Loading...</h1> : <ItemDetail item={product} />}
-    </div>
-  );
+  return <>{isLoading ? <h1>Loading...</h1> : <ItemDetail item={product} />}</>;
 };

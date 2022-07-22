@@ -31,6 +31,7 @@ export const CartForm = ({ setOrderInfo, sumOfShopItems }) => {
         cantidad: prod.selectedQuantity,
         id: prod.selectedItem.id,
         color: prod.selectedColor,
+        photo: prod.selectedItem.pictureUrl,
         estado: 'generada',
       };
     });

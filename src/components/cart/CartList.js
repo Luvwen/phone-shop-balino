@@ -13,10 +13,12 @@ export const CartList = () => {
   return (
     <div className='cart-list'>
       <h2 className='cart-list__title'>Finalizar la compra</h2>
-      <div className='cart-info'>
-        <h3 className='cart-info__details'>PRODUCTO</h3>
-        <h3 className='cart-info__details'>CANTIDAD</h3>
-        <h3 className='cart-info__details'>PRECIO</h3>
+      <div className='cart-card'>
+        <h3>FOTO</h3>
+        <h3>PRODUCTO</h3>
+        <h3>CANTIDAD</h3>
+        <h3>PRECIO</h3>
+        <h3>COLOR</h3>
       </div>
       {shopCartItems?.map((item, index) => (
         <CartListItem item={item} key={index} />

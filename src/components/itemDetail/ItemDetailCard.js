@@ -6,8 +6,9 @@ import { ItemCount } from './ItemCount';
 import { context } from '../../context/CartContext';
 
 export const ItemDetailCard = ({ item }) => {
-  const { addItem, removeItem, isInCart } = useContext(context);
   const [hideShopCart, setHideShopCart] = useState(false);
+
+  const { addItem, removeItem, isInCart } = useContext(context);
 
   const onAdd = (count) => {
     if (count > 0) {
@@ -51,46 +52,67 @@ export const ItemDetailCard = ({ item }) => {
     }
   };
 
-  const [selectedColor, setSelectedColor] = useState({ color: 'blanco' });
+  const [selectedColor, setSelectedColor] = useState({ color: 'Blanco' });
 
   const handleChangeColor = (e) => {
     setSelectedColor({ color: e.target.value });
   };
 
-  const deviceColors = ['blanco', 'negro', 'gris', 'azul', 'rosa'];
+  const deviceColors = ['Blanco', 'Negro', 'Gris', 'Azul', 'Rosa'];
 
   return (
-    <div className='card-container'>
-      <h3 className='card-container__title'>{item.title}</h3>
-      <img
-        className='card-container__picture'
-        src={item.pictureUrl}
-        alt={item.title}
-      />
-      <p className='card-container__description'>{item.description}</p>
-      <p className='card-container__price'>${item.price}</p>
-      {!hideShopCart ? (
-        <ItemCount initial={1} stock={10} onAdd={onAdd} />
-      ) : (
-        <Link to='/cart'>
-          <button className='confirm-button'>Terminar compra</button>
-        </Link>
-      )}
-      <button className='info-button' onClick={handleFindItem}>
-        Find item
-      </button>
-      <button className='info-button' onClick={handleRemoveItem}>
-        Remove item
-      </button>
-      <select onChange={handleChangeColor} defaultValue='blanco'>
-        {deviceColors.map((color, i) => {
-          return (
-            <option key={i} value={color}>
-              {color}
-            </option>
-          );
-        })}
-      </select>
+    <div className='card-detail'>
+      <div className='card-detail-list'>
+        <div className='card-info'>
+          <h3>FOTO</h3>
+          <h3>PRODUCTO</h3>
+          <h3>PRECIO</h3>
+          <h3 className={hideShopCart ? 'card-info__detaild-hide' : ''}>
+            CANTIDAD
+          </h3>
+          <h3>COLOR</h3>
+        </div>
+        <div className='card-info'>
+          <img
+            className='card-info__picture'
+            src={item.pictureUrl}
+            alt={item.title}
+          />
+          <h3 className='card-info__title'>{item.title}</h3>
+          <p className='card-info__price'>${item.price}</p>
+          {!hideShopCart && <ItemCount initial={1} stock={10} onAdd={onAdd} />}
+          <select
+            onChange={handleChangeColor}
+            defaultValue='blanco'
+            className='card-info__color'
+          >
+            {hideShopCart ? (
+              <option>{selectedColor.color}</option>
+            ) : (
+              deviceColors.map((color, i) => {
+                return (
+                  <option key={i} value={color}>
+                    {color}
+                  </option>
+                );
+              })
+            )}
+          </select>
+          <button className='cart-card__button' onClick={handleRemoveItem}>
+            Remove item
+          </button>
+        </div>
+      </div>
+      <div className='card-buttons'>
+        {hideShopCart && (
+          <Link to='/cart'>
+            <button className='card-buttons-info one'>Terminar compra</button>
+          </Link>
+        )}
+        <button className='card-buttons-info' onClick={handleFindItem}>
+          Find item
+        </button>
+      </div>
     </div>
   );
 };

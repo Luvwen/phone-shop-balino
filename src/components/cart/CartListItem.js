@@ -9,6 +9,7 @@ export const CartListItem = ({ item }) => {
     const idStringToNumber = e.target.value;
     removeItem(idStringToNumber);
   };
+
   return (
     <div className='cart-card'>
       <img
@@ -17,9 +18,11 @@ export const CartListItem = ({ item }) => {
         alt={item.selectedItem?.title}
       />
       <h2 className='cart-card__title'>{item.selectedItem?.title}</h2>
+      <p>{item.selectedQuantity}</p>
       <p className='cart-card__price'>
         ${(item.selectedItem?.price * item.selectedQuantity).toFixed(3)}
       </p>
+      <p>{item.selectedColor.color}</p>
       <button
         className='cart-card__button'
         onClick={handleRemoveItem}

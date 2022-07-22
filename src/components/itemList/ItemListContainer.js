@@ -33,27 +33,29 @@ export const ItemListContainer = ({ greeting }) => {
 
   return (
     <section className='home'>
-      <div className='home__container'>
-        <div className='home__description'>
-          <h1 className='home__description-title'>
-            La mejor tecnología en un{' '}
-            <span className='line-breaker'>solo lugar.</span>
-          </h1>
-          <p className='home__description-text'>
-            Explorar{' '}
-            <span className='home__description-text-emphasis'>
-              #DoWhatYouCant
-            </span>
-          </p>
+      {urlIdParams === undefined && (
+        <div className='home__container'>
+          <div className='home__description'>
+            <h1 className='home__description-title'>
+              La mejor tecnología en un{' '}
+              <span className='line-breaker'>solo lugar.</span>
+            </h1>
+            <p className='home__description-text'>
+              Explorar{' '}
+              <span className='home__description-text-emphasis'>
+                #DoWhatYouCant
+              </span>
+            </p>
+          </div>
+          <div>
+            <img
+              className='home__container-image'
+              src='/assets/examplePicture.png'
+              alt='Samsung s20 128gb'
+            ></img>
+          </div>
         </div>
-        <div>
-          <img
-            className='home__container-image'
-            src='/assets/examplePicture.png'
-            alt='Samsung s20 128gb'
-          ></img>
-        </div>
-      </div>
+      )}
       <div className='container-example'>
         <ItemList items={items} />
       </div>
