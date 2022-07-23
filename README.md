@@ -6,6 +6,10 @@ Hello there! Mi nombre es Santiago Baliño y esta es mi aplicación de una landi
 
 [Video del funcionamiento de la app](https://www.youtube.com/watch?v=o75FKSG4ki0&ab_channel=SantiagoBali%C3%B1o).
 
+## Deploy
+
+[Página del sitio](https://phone-app-balino.netlify.app/)
+
 ## 🛠 Tecnologías
 
 - HTML
