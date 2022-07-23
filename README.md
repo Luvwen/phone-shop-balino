@@ -20,6 +20,8 @@ Hello there! Mi nombre es Santiago Baliño y esta es mi aplicación de una landi
 - sweetalert2: "^11.4.17"
 - dayjs: "^1.11.4"
 
+### ¿Por qué el uso de estas librerias?
+
 - React-dom : Usada para controlar las rutas de la aplicación.
 - Firebase: Es donde estan alojados todos los archivos y donde se guardan las ordenes de compra.
 - sweetalert2: Display de alertas personalizadas para no usar el alert por defecto y generar una mejor experiencia de usuario.
