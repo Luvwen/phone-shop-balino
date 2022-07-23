@@ -76,7 +76,7 @@ export const WishlistContainer = () => {
                     ? faHeartbeat
                     : faHeart
                 }
-                className='wishlist-heart-detail'
+                className='wishlist-heart-detail heart-fav'
               />
             </div>
             <img

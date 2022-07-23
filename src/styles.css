@@ -616,12 +616,28 @@ html {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     margin-top: 100px;
+    row-gap: 50px;
+    column-gap: 30px;
+    margin-top: 50px;
+    padding: 0 50px;
 }
 
 .favourites-container{
     display: grid;
     grid-template-columns: repeat(1fr);
     justify-items: center;
+    max-width: 350px;
+}
+
+.favourites-container:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: all 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.heart-fav {
+    margin-left: 15px;
+    cursor: pointer;
+
 }
 
 .favourites-container__img{
@@ -630,10 +646,10 @@ html {
 .favourites-container__title{
     font-weight: 600;
     font-size: 1.2em;
+    padding-top: 25px;
 }
 .favourites-container__price{
     margin-top: 5px;
-
 }
 
 .center{
