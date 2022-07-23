@@ -32,7 +32,7 @@ Hello there! Mi nombre es Santiago Baliño y esta es mi aplicación de una landi
 Clonar el proyecto
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/Luvwen/phone-shop-balino.git
 ```
 
 Ir a la carpeta del proyecto
