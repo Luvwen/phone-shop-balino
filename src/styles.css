@@ -609,3 +609,36 @@ html {
 .order-products__image {
     width: 10vw;
 }
+
+/* WishlistContainer */
+
+.favourites {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 100px;
+}
+
+.favourites-container{
+    display: grid;
+    grid-template-columns: repeat(1fr);
+    justify-items: center;
+}
+
+.favourites-container__img{
+    width: 15vw
+}
+.favourites-container__title{
+    font-weight: 600;
+    font-size: 1.2em;
+}
+.favourites-container__price{
+    margin-top: 5px;
+
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}

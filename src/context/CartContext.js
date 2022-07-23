@@ -130,6 +130,7 @@ export const CartContext = ({ children }) => {
     sumOfShopItems: sumOfShopItems,
     addItemToFavList: addItemToFavList,
     addedToFav: addedToFav,
+    favProducts: favProducts,
   };
 
   return <Provider value={contextValue}>{children}</Provider>;

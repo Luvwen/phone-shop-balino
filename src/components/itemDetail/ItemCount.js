@@ -2,7 +2,13 @@ import React, { useState } from 'react';
 
 import Swal from 'sweetalert2';
 
-export const ItemCount = ({ initial: initialValue, stock, onAdd, title }) => {
+export const ItemCount = ({
+  initial: initialValue,
+  stock,
+  onAdd,
+  title,
+  prod,
+}) => {
   const [count, setCount] = useState(initialValue);
 
   const handleAdd = () => {
@@ -19,7 +25,7 @@ export const ItemCount = ({ initial: initialValue, stock, onAdd, title }) => {
 
   const handleConfirm = () => {
     if (count > 0) {
-      onAdd(count);
+      onAdd(count, prod);
     } else {
       Swal.fire({
         icon: 'error',

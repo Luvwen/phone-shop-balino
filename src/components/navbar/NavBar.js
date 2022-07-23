@@ -23,6 +23,9 @@ export const NavBar = () => {
           <Link to='/category/lg' className='navbar__list-item'>
             Lg
           </Link>
+          <Link to='/wishlist' className='navbar__list-item'>
+            Favoritos
+          </Link>
           <Link to='/orders' className='navbar__list-item'>
             Mis compras
           </Link>

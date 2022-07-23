@@ -10,6 +10,7 @@ import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 export const ItemDetailCard = ({ item }) => {
   const [hideShopCart, setHideShopCart] = useState(false);
+  const [selectedColor, setSelectedColor] = useState({ color: 'Blanco' });
 
   const { addItem, removeItem, isInCart, addItemToFavList, addedToFav } =
     useContext(context);
@@ -55,8 +56,6 @@ export const ItemDetailCard = ({ item }) => {
       });
     }
   };
-
-  const [selectedColor, setSelectedColor] = useState({ color: 'Blanco' });
 
   const handleChangeColor = (e) => {
     setSelectedColor({ color: e.target.value });
